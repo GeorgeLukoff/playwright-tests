@@ -1,0 +1,25 @@
+{
+  "consumer": { "name": "FrontendApp" },
+  "provider": { "name": "UserService" },
+  "interactions": [
+    {
+      "description": "a request for user with ID 1",
+      "providerState": "a user with ID 1 exists",
+      "request": {
+        "method": "GET",
+        "path": "/users/1",
+        "headers": { "Accept": "application/json" }
+      },
+      "response": {
+        "status": 200,
+        "headers": { "Content-Type": "application/json" },
+        "body": {
+          "id": 1,
+          "name": "John Doe",
+          "email": "john.doe@example.com"
+        }
+      }
+    }
+  ],
+  "metadata": { "pactSpecification": { "version": "3.0.0" } }
+}
