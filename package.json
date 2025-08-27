@@ -11,7 +11,8 @@
     "test:regression": "playwright test -g @regression",
     "codegen": "playwright codegen",
     "report": "playwright show-report",
-    "update-snapshots": "playwright test --update-snapshots"
+    "update-snapshots": "playwright test --update-snapshots",
+    "test:db": "npx playwright test --project=db"
   },
   "keywords": [],
   "author": "",
@@ -20,11 +21,16 @@
   "devDependencies": {
     "@playwright/test": "^1.55.0",
     "@types/node": "^24.3.0",
+    "@types/pg": "^8.15.5",
     "@typescript-eslint/eslint-plugin": "^8.41.0",
     "@typescript-eslint/parser": "^8.41.0",
     "eslint": "^9.34.0",
     "eslint-config-prettier": "^10.1.8",
     "prettier": "^3.6.2",
     "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.1",
+    "pg": "^8.16.3"
   }
 }
