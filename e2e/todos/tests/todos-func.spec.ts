@@ -1,3 +1,4 @@
+// e2e/todos/tests/todos-func.spec.ts
 import { test, expect } from "@playwright/test";
 import {
   navigate,
@@ -11,12 +12,13 @@ import { defaultTodo as todoText } from "../data/todos";
 
 test.describe("New Todo (function style)", () => {
   test.beforeEach(async ({ page, baseURL }) => {
-    await navigate(page, baseURL!);
+    if (!baseURL)
+      throw new Error("baseURL is not defined in Playwright config");
+    await navigate(page, baseURL);
     await removeFuncIfExists(page, todoText);
   });
 
   test.afterEach(async ({ page }) => {
-    // ✅ post-test cleanup; don't fail the suite if it flakes
     try {
       await removeFuncIfExists(page, todoText);
     } catch (err) {
@@ -24,7 +26,7 @@ test.describe("New Todo (function style)", () => {
     }
   });
 
-  test("add a todo  @smoke", async ({ page }) => {
+  test("add a todo @smoke", async ({ page }) => {
     await addTodo(page, todoText);
     await expect(getTodoItem(page, todoText)).toBeVisible();
   });
