@@ -32,16 +32,6 @@ export async function navigate(page: Page, baseURL: string) {
   await page.goto(baseURL);
 }
 
-// /**
-//  * Navigates to the TodoMVC app using the configured baseURL.
-//  *
-//  * @param page - The Playwright Page object.
-//  * @param path - Relative path to navigate to (defaults to root).
-//  */
-// export async function navigate(page: Page, path: string = "/") {
-//   await page.goto(path); // ✅ resolved against use.baseURL in playwright.config.ts
-// }
-
 /**
  * Adds a new todo item.
  *
